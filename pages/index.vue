@@ -20,6 +20,15 @@
         >
           GitHub
         </a>
+        <b-form-checkbox
+          id="checkbox-1"
+          v-model="hideAngular"
+          @change="hideAngularValue"
+          value="true"
+          unchecked-value="false"
+        >
+          Hide Angular
+        </b-form-checkbox>
       </div>
     </div>
     <b-row>
@@ -30,16 +39,12 @@
           card
           justified
         >
-          <b-tab title="Vue">
-            <github-repos v-if="tabIndex === 0" query="vue" />
-          </b-tab>
-
-          <b-tab title="Nuxt">
-            <github-repos v-if="tabIndex === 1" query="nuxt" />
-          </b-tab>
-
-          <b-tab title="Angular">
-            <github-repos v-if="tabIndex === 2" query="angular" />
+          <b-tab
+            v-for="(element, index) in elements"
+            :key="index"
+            :title="element"
+          >
+            <github-repos v-if="tabIndex === index" :query="element" />
           </b-tab>
         </b-tabs>
       </b-col>
@@ -55,8 +60,18 @@ export default Vue.extend({
   components: { GithubRepos },
   data() {
     return {
+      hideAngular: '',
+      elements: ['vue', 'nuxt', 'angular'],
       tabIndex: 0,
     }
+  },
+  methods: {
+    hideAngularValue() {
+      if(this.hideAngular === 'true'){
+        return this.elements.pop()
+      }
+      this.elements.push("angular")
+    },
   },
 })
 </script>

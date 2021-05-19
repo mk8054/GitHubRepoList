@@ -1,5 +1,8 @@
 <template>
   <div>
+      <h4 class="pb-4 pt-2 text-right">
+        Total Repos : {{total}}
+      </h4>
     <b-row class="justify-content-around">
       <repo-dash v-for="repo in repos" :key="repo.id" :repo="repo" />
     </b-row>
@@ -45,12 +48,12 @@ export default Vue.extend({
     repos: get('repoDash.repos'),
     isLoading: get('repoDash.isLoading'),
     isFailed: get('repoDash.isFailed'),
+    total: get('repoDash.total'),
   },
   watch: {
     query: {
       immediate: true,
       handler(newVal: any) {
-        console.log(newVal)
         this.$store.dispatch('loadRepos', newVal)
       },
     },
