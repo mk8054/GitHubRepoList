@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'vue-test',
+    title: 'Github Repos',
     htmlAttrs: {
       lang: 'en',
     },

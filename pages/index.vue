@@ -1,25 +1,8 @@
 <template>
   <b-container>
     <div class="text-center pt-5 mt-5">
-      <Logo />
-      <h1 class="title">vue-test</h1>
+      <h1 class="title">GitHub Repos</h1>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
         <b-form-checkbox
           id="checkbox-1"
           v-model="hideAngular"
